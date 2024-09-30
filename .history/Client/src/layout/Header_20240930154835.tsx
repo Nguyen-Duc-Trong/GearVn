@@ -1,17 +1,12 @@
-
-
 import { useDispatch, useSelector } from "react-redux";
 import { TOGGLE_THEME } from "@/store/actions";
-import { RootState } from "@/store/reducer";
 import { Link } from "react-router-dom";
-
 const Header: React.FC = () => {
     const dispatch = useDispatch();
-    const clientClient = useSelector((state: RootState) => state.clientReducer);
+    const clientClient = useSelector((reduce: any) => reduce.clientReducer);
     const handleToggleTheme = () => {
         dispatch({ type: TOGGLE_THEME, payload: clientClient.theme == 'light' ? 'dark' : 'light' });
-    };
-
+    }
     return (
         <header className="flex justify-between">
             <h1>Header</h1>
@@ -25,7 +20,6 @@ const Header: React.FC = () => {
             </nav>
             <button onClick={handleToggleTheme}>Toggle theme</button>
         </header>
-    );
-};
-
+    )
+}
 export default Header;
