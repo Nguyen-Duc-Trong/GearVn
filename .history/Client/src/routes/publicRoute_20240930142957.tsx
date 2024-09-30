@@ -1,6 +1,5 @@
 import RoutesProps from '@/interface/route';
 import DefaultLayout from '@/layout/DefaultLayout';
-import Cart from '@/views/page/client/Cart/Cart';
 import Home from '@/views/page/client/Home';
 
 const publicRoute: RoutesProps[] = [
@@ -18,11 +17,6 @@ const publicRoute: RoutesProps[] = [
     path: '/product',
     layout: DefaultLayout,
     page: () => 'day la trang san pham',
-  },
-  {
-    path: '/cart',
-    layout: DefaultLayout,
-    page: Cart,
   },
 ];
 export default publicRoute;
