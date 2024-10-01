@@ -1,6 +1,7 @@
 import RoutesProps from '@/interface/route';
 import DefaultLayout from '@/layout/DefaultLayout';
 import Home from '@/views/page/client/Home';
+import Login  from '@/views/page/client/Login/Login';
 
 const publicRoute: RoutesProps[] = [
   {
@@ -17,6 +18,11 @@ const publicRoute: RoutesProps[] = [
     path: '/product',
     layout: DefaultLayout,
     page: () => 'day la trang san pham',
+  },
+  {
+    path: '/product',
+    layout: DefaultLayout,
+    page: Login,
   },
 ];
 export default publicRoute;

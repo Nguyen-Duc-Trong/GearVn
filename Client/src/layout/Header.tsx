@@ -21,6 +21,7 @@ const Header: React.FC = () => {
                     <li><Link to="/">Trang chủ</Link></li>
                     <li><Link to="/product_detail">Chi tiết sản phẩm</Link></li>
                     <li><Link to="/product">Sản phẩm</Link></li>
+                    <li><Link to="/product">Tài Khoản</Link></li>
                 </ul>
             </nav>
             <button onClick={handleToggleTheme}>Toggle themeeee</button>
