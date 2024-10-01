@@ -13,12 +13,8 @@ import {
   MdOutlineCable,
 } from 'react-icons/md';
 import { FaHdd } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/store/reducer';
-import { setHoveredCategory } from '@/store/categorySlice';
 
 export const Category: React.FC = () => {
-  const dispath = useDispatch();
   const brands = [
     'ASUS',
     'ACER',
@@ -103,12 +99,15 @@ export const Category: React.FC = () => {
   // );
   const [isOpenCategory, setIsOpenCategory] = React.useState(false);
   const [currentCategory, setCurrentCategory] = React.useState();
-  console.log(currentCategory);
 
   return (
     <aside className="w-full lg:w-1/4 bg-white rounded-lg shadow-lg overflow-hidden md:hidden xl:block max-sm:hidden ">
       <nav className="p-2">
-        <ul className="space-y-2">
+        <ul
+          className="space-y-2"
+          style={{ marginRight: '-8px' }}
+          onMouseLeave={() => setIsOpenCategory(false)}
+        >
           {categories.map((category, index) => (
             <li
               key={index}
@@ -117,8 +116,6 @@ export const Category: React.FC = () => {
                 setCurrentCategory(categories[index]);
                 setIsOpenCategory(true);
               }}
-
-              // onMouseLeave={() => dispath(setHoveredCategory(null))}
             >
               <a
                 href="#"
@@ -130,40 +127,43 @@ export const Category: React.FC = () => {
                     {category.label}
                   </span>
                 </span>
-                <ChevronRight className="h-4 w-4" />
+                <ChevronRight className="h-4 w-4 mr-4" />
               </a>
-              {/* {hoveredCategory === category.label && ( */}
-              <div>
-                <div className=" bg-white shadow-lg p-4 rounded-lg z-[50] absolute right-0 top-0 w-custom-calc h-full ">
-                  <h3 className="text-md font-semibold mb-2">
-                    {category.label}
-                  </h3>
-                  <ul className="space-y-1">
-                    {category.data.map((item: any, subIndex: number) => (
-                      <React.Fragment key={subIndex}>
-                        <div className="flex justify-between gap-2">
-                          <li className="text-sm text-gray-700">
-                            {item.brand || item}
-                          </li>
-                          <li className="text-sm text-gray-700">
-                            {item.brand || item}
-                          </li>
-                          <li className="text-sm text-gray-700">
-                            {item.brand || item}
-                          </li>
-                          <li className="text-sm text-gray-700">
-                            {item.brand || item}
-                          </li>
-                          <li className="text-sm text-gray-700">
-                            {item.brand || item}
-                          </li>
-                        </div>
-                      </React.Fragment>
-                    ))}
-                  </ul>
+
+              {isOpenCategory && (
+                <div onMouseLeave={() => setIsOpenCategory(false)}>
+                  <div className="  bg-white p-4 rounded-lg z-[50] absolute right-0 top-0 w-custom-calc h-full ">
+                    <h3 className="text-md font-semibold mb-2">
+                      {category.label}
+                    </h3>
+                    <ul className="space-y-1">
+                      {currentCategory.data.map(
+                        (item: any, subIndex: number) => (
+                          <React.Fragment key={subIndex}>
+                            <div className="flex justify-between gap-2">
+                              <li className="text-sm text-gray-700">
+                                {item.brand || item}
+                              </li>
+                              <li className="text-sm text-gray-700">
+                                {item.brand || item}
+                              </li>
+                              <li className="text-sm text-gray-700">
+                                {item.brand || item}
+                              </li>
+                              <li className="text-sm text-gray-700">
+                                {item.brand || item}
+                              </li>
+                              <li className="text-sm text-gray-700">
+                                {item.brand || item}
+                              </li>
+                            </div>
+                          </React.Fragment>
+                        )
+                      )}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-              {/* )} */}
+              )}
             </li>
           ))}
         </ul>
