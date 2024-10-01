@@ -1,0 +1,19 @@
+POST http://localhost:3000/api/v1/auth/signup
+Content-Type: application/json
+
+{
+  "name": "testuser",
+  "email": "caoboi520@gmail.com",
+  "password": "password123",
+  "role": "user"
+}
+
+#######################################
+
+POST http://localhost:3000/api/v1/auth/signin
+Content-Type: application/json
+
+{
+  "email": "caoboi520@gmail.com",
+  "password": "password123"
+}
