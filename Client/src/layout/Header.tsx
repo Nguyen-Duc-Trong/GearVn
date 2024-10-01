@@ -19,7 +19,7 @@ const Header: React.FC = () => {
             <nav>
                 <ul className="flex space-x-10">
                     <li><Link to="/">Trang chủ</Link></li>
-                    <li><Link to="/product_detail">Chi tiết sản phẩm</Link></li>
+                    <li><Link to="/product_detail">Chi tiết sản phẩmmmmmmm</Link></li>
                     <li><Link to="/product">Sản phẩm</Link></li>
                     <li><Link to="/product">Tài Khoản</Link></li>
                 </ul>
