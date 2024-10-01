@@ -1,4 +1,10 @@
+import { Hero } from '@/components/Hero';
+
 const Home: React.FC = () => {
-  return <h1>Đây là home</h1>;
+  return (
+    <div>
+      <Hero />
+    </div>
+  );
 };
 export default Home;
