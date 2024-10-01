@@ -1,0 +1,126 @@
+[33mcommit 8b0a34159f0857439d7bcf39467c0cb9aec49b3c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdev_nam_homepage[m[33m)[m
+Author: antrungnam <antrungnam1234@gmail.com>
+Date:   Tue Oct 1 10:17:56 2024 +0700
+
+    e chiu
+
+[1mdiff --git a/Client/src/components/Category.tsx b/Client/src/components/Category.tsx[m
+[1mindex 90e832a..f1cbbb2 100644[m
+[1m--- a/Client/src/components/Category.tsx[m
+[1m+++ b/Client/src/components/Category.tsx[m
+[36m@@ -13,12 +13,8 @@[m [mimport {[m
+   MdOutlineCable,[m
+ } from 'react-icons/md';[m
+ import { FaHdd } from 'react-icons/fa';[m
+[31m-import { useDispatch, useSelector } from 'react-redux';[m
+[31m-import { RootState } from '@/store/reducer';[m
+[31m-import { setHoveredCategory } from '@/store/categorySlice';[m
+ [m
+ export const Category: React.FC = () => {[m
+[31m-  const dispath = useDispatch();[m
+   const brands = [[m
+     'ASUS',[m
+     'ACER',[m
+[36m@@ -103,12 +99,15 @@[m [mexport const Category: React.FC = () => {[m
+   // );[m
+   const [isOpenCategory, setIsOpenCategory] = React.useState(false);[m
+   const [currentCategory, setCurrentCategory] = React.useState();[m
+[31m-  console.log(currentCategory);[m
+ [m
+   return ([m
+     <aside className="w-full lg:w-1/4 bg-white rounded-lg shadow-lg overflow-hidden md:hidden xl:block max-sm:hidden ">[m
+       <nav className="p-2">[m
+[31m-        <ul className="space-y-2">[m
+[32m+[m[32m        <ul[m
+[32m+[m[32m          className="space-y-2"[m
+[32m+[m[32m          style={{ marginRight: '-8px' }}[m
+[32m+[m[32m          onMouseLeave={() => setIsOpenCategory(false)}[m
+[32m+[m[32m        >[m
+           {categories.map((category, index) => ([m
+             <li[m
+               key={index}[m
+[36m@@ -117,8 +116,6 @@[m [mexport const Category: React.FC = () => {[m
+                 setCurrentCategory(categories[index]);[m
+                 setIsOpenCategory(true);[m
+               }}[m
+[31m-[m
+[31m-              // onMouseLeave={() => dispath(setHoveredCategory(null))}[m
+             >[m
+               <a[m
+                 href="#"[m
+[36m@@ -130,40 +127,43 @@[m [mexport const Category: React.FC = () => {[m
+                     {category.label}[m
+                   </span>[m
+                 </span>[m
+[31m-                <ChevronRight className="h-4 w-4" />[m
+[32m+[m[32m                <ChevronRight className="h-4 w-4 mr-4" />[m
+               </a>[m
+[31m-              {/* {hoveredCategory === category.label && ( */}[m
+[31m-              <div>[m
+[31m-                <div className=" bg-white shadow-lg p-4 rounded-lg z-[50] absolute right-0 top-0 w-custom-calc h-full ">[m
+[31m-                  <h3 className="text-md font-semibold mb-2">[m
+[31m-                    {category.label}[m
+[31m-                  </h3>[m
+[31m-                  <ul className="space-y-1">[m
+[31m-                    {category.data.map((item: any, subIndex: number) => ([m
+[31m-                      <React.Fragment key={subIndex}>[m
+[31m-                        <div className="flex justify-between gap-2">[m
+[31m-                          <li className="text-sm text-gray-700">[m
+[31m-                            {item.brand || item}[m
+[31m-                          </li>[m
+[31m-                          <li className="text-sm text-gray-700">[m
+[31m-                            {item.brand || item}[m
+[31m-                          </li>[m
+[31m-                          <li className="text-sm text-gray-700">[m
+[31m-                            {item.brand || item}[m
+[31m-                          </li>[m
+[31m-                          <li className="text-sm text-gray-700">[m
+[31m-                            {item.brand || item}[m
+[31m-                          </li>[m
+[31m-                          <li className="text-sm text-gray-700">[m
+[31m-                            {item.brand || item}[m
+[31m-                          </li>[m
+[31m-                        </div>[m
+[31m-                      </React.Fragment>[m
+[31m-                    ))}[m
+[31m-                  </ul>[m
+[32m+[m
+[32m+[m[32m              {isOpenCategory && ([m
+[32m+[m[32m                <div onMouseLeave={() => setIsOpenCategory(false)}>[m
+[32m+[m[32m                  <div className="  bg-white p-4 rounded-lg z-[50] absolute right-0 top-0 w-custom-calc h-full ">[m
+[32m+[m[32m                    <h3 className="text-md font-semibold mb-2">[m
+[32m+[m[32m                      {category.label}[m
+[32m+[m[32m                    </h3>[m
+[32m+[m[32m                    <ul className="space-y-1">[m
+[32m+[m[32m                      {currentCategory.data.map([m
+[32m+[m[32m                        (item: any, subIndex: number) => ([m
+[32m+[m[32m                          <React.Fragment key={subIndex}>[m
+[32m+[m[32m                            <div className="flex justify-between gap-2">[m
+[32m+[m[32m                              <li className="text-sm text-gray-700">[m
+[32m+[m[32m                                {item.brand || item}[m
+[32m+[m[32m                              </li>[m
+[32m+[m[32m                              <li className="text-sm text-gray-700">[m
+[32m+[m[32m                                {item.brand || item}[m
+[32m+[m[32m                              </li>[m
+[32m+[m[32m                              <li className="text-sm text-gray-700">[m
+[32m+[m[32m                                {item.brand || item}[m
+[32m+[m[32m                              </li>[m
+[32m+[m[32m                              <li className="text-sm text-gray-700">[m
+[32m+[m[32m                                {item.brand || item}[m
+[32m+[m[32m                              </li>[m
+[32m+[m[32m                              <li className="text-sm text-gray-700">[m
+[32m+[m[32m                                {item.brand || item}[m
+[32m+[m[32m                              </li>[m
+[32m+[m[32m                            </div>[m
+[32m+[m[32m                          </React.Fragment>[m
+[32m+[m[32m                        )[m
+[32m+[m[32m                      )}[m
+[32m+[m[32m                    </ul>[m
+[32m+[m[32m                  </div>[m
+                 </div>[m
+[31m-              </div>[m
+[31m-              {/* )} */}[m
+[32m+[m[32m              )}[m
+             </li>[m
+           ))}[m
+         </ul>[m

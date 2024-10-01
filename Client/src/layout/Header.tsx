@@ -66,8 +66,11 @@ const Header: React.FC = () => {
               placeholder="Bạn cần tìm gì?"
               className="text-white w-full"
             />
-            <Button type="submit" className="ml-2 bg-red-600 hover:bg-red-700">
-              <FaSearch className="h-4 w-4" />
+            <Button
+              type="submit"
+              className="rounded ml-2 bg-red-600 hover:bg-red-700"
+            >
+              <FaSearch className="h-4 w-4 " />
             </Button>
           </div>
 
