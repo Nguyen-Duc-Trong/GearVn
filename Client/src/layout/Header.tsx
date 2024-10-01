@@ -20,10 +20,10 @@ const Header: React.FC = () => {
                 <ul className="flex space-x-10">
                     <li><Link to="/">Trang chủ</Link></li>
                     <li><Link to="/product_detail">Chi tiết sản phẩmmmmmmm</Link></li>
-                    <li><Link to="/product">Sản phẩmmmmm</Link></li>
+                    <li><Link to="/product">Sản phẩm</Link></li>
                 </ul>
             </nav>
-            <button onClick={handleToggleTheme}>Toggle themeeee</button>
+            <button onClick={handleToggleTheme}>Toggle themeeeeeeeeeee</button>
         </header>
     );
 };
