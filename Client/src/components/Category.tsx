@@ -94,7 +94,7 @@ export const Category: React.FC = () => {
     { icon: <GiLaptop />, label: 'Handheld, Console', data: laptopBrands },
     {
       icon: <MdOutlineCable />,
-      label: 'Phụ kiện (Hub, sạc, cáp..)',
+      label: 'Phụ kiện (Hub, sạc, cáp...)',
       data: priceRanges,
     },
   ];
@@ -113,7 +113,10 @@ export const Category: React.FC = () => {
             <li
               key={index}
               className="hover:bg-gray-100 rounded-lg transition duration-200 "
-              onMouseEnter={() => setCurrentCategory(laptopBrands[index])}
+              onMouseEnter={() => {
+                setCurrentCategory(categories[index]);
+                setIsOpenCategory(true);
+              }}
 
               // onMouseLeave={() => dispath(setHoveredCategory(null))}
             >
