@@ -23,7 +23,7 @@ const Header: React.FC = () => {
                     <li><Link to="/product">Sản phẩm</Link></li>
                 </ul>
             </nav>
-            <button onClick={handleToggleTheme}>Toggle theme</button>
+            <button onClick={handleToggleTheme}>Toggle themeeee</button>
         </header>
     );
 };
